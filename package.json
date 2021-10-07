@@ -1,0 +1,28 @@
+{
+  "name": "sima-parser",
+  "version": "1.0.0",
+  "description": "quick parser for the simaland",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poludnev/sima-parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poludnev/sima-parser/issues"
+  },
+  "homepage": "https://github.com/poludnev/sima-parser#readme",
+  "dependencies": {
+    "dom-parser": "^0.1.6",
+    "excel4node": "^1.7.2",
+    "fs": "0.0.1-security",
+    "init.js": "^1.3.0",
+    "jsdom": "^17.0.0",
+    "utils.js": "^1.0.1",
+    "xlsx": "^0.17.1"
+  }
+}
