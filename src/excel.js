@@ -1,24 +1,20 @@
 const xl = require('excel4node');
+// const { head } = require('lodash');
 const _ = require('lodash');
+const headings = require('./data.js');
+
+const wb = new xl.Workbook();
+const ws = wb.addWorksheet('Sheet 1');
+
+const putHeadings = (worksheet, data) => {
+  for (let i = 0; i < data.length; i += 1) {
+    worksheet.cell(1, i + 1).string(data[i]);
+  }
+};
+
+putHeadings(ws, headings);
 
 exports.writeExcel = (items, fileName) => {
-  const wb = new xl.Workbook();
-  const ws = wb.addWorksheet('Sheet 1');
-
-  ws.cell(1, 1).string('nn');
-  ws.cell(1, 2).string('company');
-  ws.cell(1, 3).string('article');
-  ws.cell(1, 4).string('name');
-  ws.cell(1, 5).string('link');
-  ws.cell(1, 6).string('imageLink');
-  ws.cell(1, 7).string('price');
-  ws.cell(1, 8).string('discountPrice');
-  ws.cell(1, 9).string('boxPcs');
-  ws.cell(1, 10).string('brand');
-  ws.cell(1, 11).string('category');
-  ws.cell(1, 12).string('country');
-  ws.cell(1, 13).string('other');
-
   for (let i = 0; i < items.length; i += 1) {
     ws.cell(i + 2, 1).number(i + 1);
     ws.cell(i + 2, 2).string('Sima');
