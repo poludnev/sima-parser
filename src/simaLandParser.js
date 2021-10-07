@@ -13,30 +13,19 @@ module.exports = (file1, hostName = 'www.sima-land.ru') => {
 
   const items = [];
   [...catalog].forEach((item) => {
-    const link = item.querySelector('[data-testid="anchor"]').href;
-    const name = item.querySelector('[data-testid="item-name"]').textContent;
-    const imageLink = item.querySelector('[data-testid="item-image"]').src;
     const priceRegular = item.querySelector('[data-testid="item-price"]');
     const priceDiscount = item.querySelector('[data-testid="price"]');
-
     const priceParent = priceDiscount.parentElement;
-
     const priceParentDiv = priceParent.parentElement;
-
     const itemDataBlock = priceParentDiv.parentElement.nextElementSibling;
-
     const itemData = getItemData(itemDataBlock);
 
-    const priceDiscountValue = convertPrice(priceDiscount.textContent);
-
-    const priceRegularValue = convertPrice(priceRegular.textContent);
-
     items.push({
-      name,
-      link: `${hostName}${link}`,
-      imageLink,
-      priceRegularValue,
-      priceDiscountValue,
+      name: item.querySelector('[data-testid="item-name"]').textContent,
+      link: `${hostName}${item.querySelector('[data-testid="anchor"]').href}`,
+      imageLink: item.querySelector('[data-testid="item-image"]').src,
+      priceRegularValue: convertPrice(priceRegular.textContent),
+      priceDiscountValue: convertPrice(priceDiscount.textContent),
       ...itemData.main,
       misc: itemData.other,
     });
